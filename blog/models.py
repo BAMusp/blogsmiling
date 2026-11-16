@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 
@@ -9,5 +10,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[self.pk])
 
-# Create your models here.
