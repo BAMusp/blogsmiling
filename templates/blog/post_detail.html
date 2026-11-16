@@ -10,6 +10,21 @@
     {{ post.conteudo|safe }}
 </article>
 
+<section>
+    <h3>Comentários</h3>
+    <p><a href="{% url 'comment_create' post.pk %}">Escrever um comentário</a></p>
+
+    {% for comment in post.comments.all %}
+        <article>
+            <p><strong>{{ comment.autor.username }}</strong>
+               em {{ comment.data_postagem|date:"d/m/Y H:i" }}</p>
+            <p>{{ comment.texto|linebreaksbr }}</p>
+        </article>
+    {% empty %}
+        <p>Nenhum comentário ainda.</p>
+    {% endfor %}
+</section>
+
 <p>
     <a href="{% url 'post_update' post.pk %}">Editar</a> |
     <a href="{% url 'post_delete' post.pk %}">Remover</a> |
