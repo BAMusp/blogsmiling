@@ -11,23 +11,25 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <header>
-        <a href="{% url 'post_list' %}">
-            <img class="logo" src="{% static 'images/logo.jpg' %}" alt="Logo da Smiling Friends">
-        </a>
+    <header class="topo">
+        <div class="topo-conteudo">
+            <a href="{% url 'post_list' %}">
+                <img class="logo" src="{% static 'images/logo.jpg' %}" alt="Logo da Smiling Friends">
+            </a>
 
-        <div class="marca">
-            <h1>Smiling Friends</h1>
-            <p>os amigos do seu sorriso</p>
+            <div class="marca">
+                <h1><a href="{% url 'post_list' %}">Smiling Friends</a></h1>
+                <p>os amigos do seu sorriso</p>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="{% url 'post_list' %}">Posts</a></li>
+                    <li><a href="{% url 'category_list' %}">Categorias</a></li>
+                    <li><a class="destaque" href="{% url 'post_create' %}">+ Novo post</a></li>
+                </ul>
+            </nav>
         </div>
-
-        <nav>
-            <ul>
-                <li><a href="{% url 'post_list' %}">Posts</a></li>
-                <li><a href="{% url 'category_list' %}">Categorias</a></li>
-                <li><a href="{% url 'post_create' %}">Novo post</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
@@ -35,7 +37,7 @@
     </main>
 
     <footer>
-        <p>Esta página não tem associação.</p>
+        <p>Smiling Friends · Esta página não tem associação.</p>
     </footer>
 </body>
 </html>

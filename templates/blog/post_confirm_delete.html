@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Remover post</h2>
-<p>Tem certeza de que deseja remover <strong>{{ post.titulo }}</strong>?</p>
+<div class="caixa">
+    <h2>Remover post</h2>
+    <p>Tem certeza de que deseja remover <strong>{{ post.titulo }}</strong>? Essa ação não pode ser desfeita.</p>
 
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Sim, remover</button>
-    <a href="{% url 'post_detail' post.pk %}">Cancelar</a>
-</form>
+    <form method="post">
+        {% csrf_token %}
+        <div class="acoes">
+            <button type="submit" class="botao botao-perigo">Sim, remover</button>
+            <a class="botao botao-secundario" href="{% url 'post_detail' post.pk %}">Cancelar</a>
+        </div>
+    </form>
+</div>
 {% endblock %}

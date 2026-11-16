@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Comentar em "{{ post.titulo }}"</h2>
+<div class="titulo-pagina">
+    <p class="sobretitulo">Novo comentário</p>
+    <h2>{{ post.titulo }}</h2>
+</div>
 
-<form method="post">
+<form method="post" class="caixa formulario">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Publicar comentário</button>
-    <a href="{% url 'post_detail' post.pk %}">Cancelar</a>
+    {{ form.as_div }}
+
+    <div class="acoes">
+        <button type="submit" class="botao">Publicar comentário</button>
+        <a class="botao botao-secundario" href="{% url 'post_detail' post.pk %}">Cancelar</a>
+    </div>
 </form>
 {% endblock %}

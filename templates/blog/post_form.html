@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>{% if post %}Editar post{% else %}Novo post{% endif %}</h2>
+<div class="titulo-pagina">
+    <h2>{% if post %}Editar post{% else %}Novo post{% endif %}</h2>
+    <p>O conteúdo aceita HTML, como &lt;p&gt;, &lt;strong&gt; e &lt;img&gt;.</p>
+</div>
 
-<form method="post">
+<form method="post" class="caixa formulario">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Salvar</button>
+    {{ form.as_div }}
+
+    <div class="acoes">
+        <button type="submit" class="botao">Salvar</button>
+        {% if post %}
+            <a class="botao botao-secundario" href="{% url 'post_detail' post.pk %}">Cancelar</a>
+        {% else %}
+            <a class="botao botao-secundario" href="{% url 'post_list' %}">Cancelar</a>
+        {% endif %}
+    </div>
 </form>
 {% endblock %}

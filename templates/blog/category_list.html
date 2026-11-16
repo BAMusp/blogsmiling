@@ -1,16 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Categorias</h2>
+<div class="titulo-pagina">
+    <h2>Categorias</h2>
+    <p>Escolha um assunto para ver os posts relacionados.</p>
+</div>
 
-<div class="lista-posts">
-{% for category in category_list %}
-    <article>
-        <h3><a href="{% url 'category_detail' category.pk %}">{{ category.nome }}</a></h3>
-        <p>{{ category.descricao }}</p>
-    </article>
-{% empty %}
-    <p>Nenhuma categoria cadastrada.</p>
-{% endfor %}
+<div class="grade">
+    {% for category in category_list %}
+        <article class="cartao">
+            <h3><a href="{% url 'category_detail' category.pk %}">{{ category.nome }}</a></h3>
+            <p>{{ category.descricao }}</p>
+            <div class="cartao-rodape">
+                <span>{{ category.posts.count }} post{{ category.posts.count|pluralize }}</span>
+                <a class="link-mais" href="{% url 'category_detail' category.pk %}">Ver posts →</a>
+            </div>
+        </article>
+    {% empty %}
+        <p class="vazio">Nenhuma categoria cadastrada.</p>
+    {% endfor %}
 </div>
 {% endblock %}

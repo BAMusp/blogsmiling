@@ -1,21 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% if category %}
-    <h2>Categoria: {{ category.nome }}</h2>
-    <p>{{ category.descricao }}</p>
-{% else %}
-    <h2>Posts</h2>
-{% endif %}
+<div class="titulo-pagina">
+    {% if category %}
+        <p class="sobretitulo">Categoria</p>
+        <h2>{{ category.nome }}</h2>
+        <p>{{ category.descricao }}</p>
+    {% else %}
+        <h2>Posts recentes</h2>
+        <p>Tudo o que acontece no escritório mais feliz do mundo.</p>
+    {% endif %}
+</div>
 
-<div class="lista-posts">
-{% for post in post_list %}
-    <article>
-        <h3><a href="{% url 'post_detail' post.pk %}">{{ post.titulo }}</a></h3>
-        <p>{{ post.data_postagem|date:"d/m/Y H:i" }}</p>
-    </article>
-{% empty %}
-    <p>Nenhum post ainda.</p>
-{% endfor %}
+<div class="grade">
+    {% for post in post_list %}
+        <article class="cartao">
+            <p class="data">{{ post.data_postagem|date:"d/m/Y H:i" }}</p>
+            <h3><a href="{% url 'post_detail' post.pk %}">{{ post.titulo }}</a></h3>
+            <p>{{ post.conteudo|striptags|truncatewords:25 }}</p>
+
+            {% if post.categorias.all %}
+                <ul class="tags">
+                    {% for categoria in post.categorias.all %}
+                        <li><a class="tag" href="{% url 'category_detail' categoria.pk %}">{{ categoria.nome }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <div class="cartao-rodape">
+                <span>💬 {{ post.comments.count }} comentário{{ post.comments.count|pluralize }}</span>
+                <a class="link-mais" href="{% url 'post_detail' post.pk %}">Ler mais →</a>
+            </div>
+        </article>
+    {% empty %}
+        <p class="vazio">Nenhum post ainda.</p>
+    {% endfor %}
 </div>
 {% endblock %}

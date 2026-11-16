@@ -1,41 +1,47 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ post.titulo }}{% endblock %}
+{% block title %}{{ post.titulo }} · Smiling Friends{% endblock %}
 
 {% block content %}
-<article>
+<article class="post">
+    <p class="data">Publicado em {{ post.data_postagem|date:"d/m/Y H:i" }}</p>
     <h2>{{ post.titulo }}</h2>
-    <p>Publicado em {{ post.data_postagem|date:"d/m/Y H:i" }}</p>
 
     {% if post.categorias.all %}
-        <p>Categorias:
-        {% for categoria in post.categorias.all %}
-            <a href="{% url 'category_detail' categoria.pk %}">{{ categoria.nome }}</a>{% if not forloop.last %}, {% endif %}
-        {% endfor %}
-        </p>
+        <ul class="tags">
+            {% for categoria in post.categorias.all %}
+                <li><a class="tag" href="{% url 'category_detail' categoria.pk %}">{{ categoria.nome }}</a></li>
+            {% endfor %}
+        </ul>
     {% endif %}
 
-    {{ post.conteudo|safe }}
+    <div class="post-conteudo">
+        {{ post.conteudo|safe }}
+    </div>
 </article>
 
-<section>
-    <h3>Comentários</h3>
-    <p><a href="{% url 'comment_create' post.pk %}">Escrever um comentário</a></p>
+<div class="acoes">
+    <a class="botao botao-secundario" href="{% url 'post_list' %}">← Voltar</a>
+    <a class="botao" href="{% url 'post_update' post.pk %}">Editar</a>
+    <a class="botao botao-perigo" href="{% url 'post_delete' post.pk %}">Remover</a>
+</div>
+
+<section class="comentarios">
+    <div class="comentarios-topo">
+        <h3>Comentários ({{ post.comments.count }})</h3>
+        <a class="botao" href="{% url 'comment_create' post.pk %}">Escrever um comentário</a>
+    </div>
 
     {% for comment in post.comments.all %}
-        <article>
-            <p><strong>{{ comment.autor.username }}</strong>
-               em {{ comment.data_postagem|date:"d/m/Y H:i" }}</p>
+        <article class="comentario">
+            <p class="comentario-autor">
+                {{ comment.autor.username }}
+                <span>· {{ comment.data_postagem|date:"d/m/Y H:i" }}</span>
+            </p>
             <p>{{ comment.texto|linebreaksbr }}</p>
         </article>
     {% empty %}
-        <p>Nenhum comentário ainda.</p>
+        <p class="vazio">Nenhum comentário ainda. Seja o primeiro!</p>
     {% endfor %}
 </section>
-
-<p>
-    <a href="{% url 'post_update' post.pk %}">Editar</a> |
-    <a href="{% url 'post_delete' post.pk %}">Remover</a> |
-    <a href="{% url 'post_list' %}">Voltar</a>
-</p>
 {% endblock %}
