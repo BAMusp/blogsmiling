@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Smiling Friends{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'post_list' %}">Smiling Friends</a></h1>
+        <p>os amigos do seu sorriso</p>
+        <nav>
+            <ul>
+                <li><a href="{% url 'post_list' %}">Posts</a></li>
+                <li><a href="{% url 'post_create' %}">Novo post</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>Esta página não tem associação.</p>
+    </footer>
+</body>
+</html>
