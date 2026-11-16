@@ -5,17 +5,7 @@
 
 <form method="post">
     {% csrf_token %}
-
-    <p>
-        <label for="titulo">Título</label><br>
-        <input type="text" id="titulo" name="titulo" value="{{ post.titulo|default:'' }}">
-    </p>
-
-    <p>
-        <label for="conteudo">Conteúdo (HTML)</label><br>
-        <textarea id="conteudo" name="conteudo" rows="12" cols="80">{{ post.conteudo|default:'' }}</textarea>
-    </p>
-
+    {{ form.as_p }}
     <button type="submit">Salvar</button>
 </form>
 {% endblock %}
