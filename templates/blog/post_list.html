@@ -8,6 +8,7 @@
     <h2>Posts</h2>
 {% endif %}
 
+<div class="lista-posts">
 {% for post in post_list %}
     <article>
         <h3><a href="{% url 'post_detail' post.pk %}">{{ post.titulo }}</a></h3>
@@ -16,4 +17,5 @@
 {% empty %}
     <p>Nenhum post ainda.</p>
 {% endfor %}
+</div>
 {% endblock %}

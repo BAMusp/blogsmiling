@@ -1,14 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Smiling Friends{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <h1><a href="{% url 'post_list' %}">Smiling Friends</a></h1>
-        <p>os amigos do seu sorriso</p>
+        <a href="{% url 'post_list' %}">
+            <img class="logo" src="{% static 'images/logo.jpg' %}" alt="Logo da Smiling Friends">
+        </a>
+
+        <div class="marca">
+            <h1>Smiling Friends</h1>
+            <p>os amigos do seu sorriso</p>
+        </div>
+
         <nav>
             <ul>
                 <li><a href="{% url 'post_list' %}">Posts</a></li>

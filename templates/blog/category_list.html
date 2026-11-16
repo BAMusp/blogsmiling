@@ -3,6 +3,7 @@
 {% block content %}
 <h2>Categorias</h2>
 
+<div class="lista-posts">
 {% for category in category_list %}
     <article>
         <h3><a href="{% url 'category_detail' category.pk %}">{{ category.nome }}</a></h3>
@@ -11,4 +12,5 @@
 {% empty %}
     <p>Nenhuma categoria cadastrada.</p>
 {% endfor %}
+</div>
 {% endblock %}
