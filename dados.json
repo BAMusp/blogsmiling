@@ -1,0 +1,242 @@
+[
+{
+  "model": "blog.category",
+  "pk": 1,
+  "fields": {
+    "nome": "Missões",
+    "descricao": "Nossos resgates aos sorrisos"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 2,
+  "fields": {
+    "nome": "Bastidores",
+    "descricao": "Um pouco dos bastidores da equipe e o que acontece no escritório, muitas risadas para fazermos nosso público rir também"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 3,
+  "fields": {
+    "nome": "Equipe e Escritório",
+    "descricao": "Coisas que a equipe e o escritório estão precisando"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 9,
+  "fields": {
+    "titulo": "Missão no inferno?",
+    "conteudo": "Fiquei sabendo que o Charlie teve que ir pro inferno?? é verdade isso mesmo? que loucura",
+    "data_postagem": "2026-11-16T22:29:26.273Z",
+    "categorias": [
+      2,
+      1
+    ]
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 10,
+  "fields": {
+    "titulo": "Aquela viagem para o Brasil",
+    "conteudo": "fiquei sabendo que a viagem de férias deu um pouco errado, é isso mesmo??",
+    "data_postagem": "2026-11-16T22:31:59.137Z",
+    "categorias": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 11,
+  "fields": {
+    "titulo": "Glep",
+    "conteudo": "ainda não entendi o que o Glep faz na equipe",
+    "data_postagem": "2026-11-16T22:34:09.833Z",
+    "categorias": [
+      3
+    ]
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 5,
+  "fields": {
+    "post": 9,
+    "autor": 3,
+    "texto": "é, esse dia foi muito doido",
+    "data_postagem": "2026-11-16T22:29:44.616Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 6,
+  "fields": {
+    "post": 9,
+    "autor": 2,
+    "texto": "pensei que eu nunca mais ia ver o Charlie mas ele voltou eeeeba",
+    "data_postagem": "2026-11-16T22:30:12.403Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 7,
+  "fields": {
+    "post": 9,
+    "autor": 4,
+    "texto": "pensei que iam me processar...",
+    "data_postagem": "2026-11-16T22:30:25.803Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 8,
+  "fields": {
+    "post": 10,
+    "autor": 5,
+    "texto": "eu passei uma raiva esse dia, achei que ia infartar",
+    "data_postagem": "2026-11-16T22:32:24.420Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 9,
+  "fields": {
+    "post": 10,
+    "autor": 4,
+    "texto": "as vezes as coisas dão muito errado",
+    "data_postagem": "2026-11-16T22:32:37.797Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 10,
+  "fields": {
+    "post": 11,
+    "autor": 6,
+    "texto": "oaoicnodicnaicnm?? ewpdaeof, iaeifjaiec  ihea0ovnd? cqirijrpoq jqerfojqei owerqpod!!! qdi@$%#!¨&¨!#!!!!",
+    "data_postagem": "2026-11-16T22:35:47.659Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 11,
+  "fields": {
+    "post": 11,
+    "autor": 2,
+    "texto": "nossa Glep, pega leve kkkkk",
+    "data_postagem": "2026-11-16T22:36:02.465Z"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$DvueVSyTFiQ0uXLCP9kkMK$ptH4Vwh65NClfOgxfXsZtQXJwCGyJVLqer69fbpTh1Y=",
+    "last_login": "2026-11-16T19:52:55.873Z",
+    "is_superuser": true,
+    "username": "magal",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-11-16T19:52:14.671Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$HuN7PupN3Kgbur4uCY0k69$5pnwdmpALebvYqX7duz0LX1W75bi2acetzLc+TwHX2c=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Pim",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-16T21:09:16.663Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$aqgFhfOuFzyWzx0P9bSA4a$s8ofQFm3mB2m2B+egNbwVCK+CvP3sO7JvirrYPYgMGA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Charlie",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-16T21:10:44.723Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$KV4yLET2fIxLP4vMZV9s56$+/gt/ayzHnbKhvG473sPaAadbuJdXiA7dj5AZRmXfBo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Mr.Boss",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-16T21:11:21.118Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$Kk5b8ER8K2aI9nnoNKbL9x$TEICKrVPJ97LN26ZAwikk0tL/d71UNVyB0gIzWH8riY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Adam",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-16T21:11:36.428Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$6QYDGEPo76ZfChpNbWhHHO$z8QoPUmgHSdR0a8loj6kaVo2gL9lC6L7TSggLy2bINE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Glep",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-16T21:11:52.013Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
